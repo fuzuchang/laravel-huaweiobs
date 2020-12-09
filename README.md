@@ -141,7 +141,7 @@ $resp = HWobs::deleteMulti(['object-name1','object-name2']);
 
 Special thanks to 
 [Visual Studio Code](https://code.visualstudio.com/?from=goodgay/huaweiobs) for their 
-Open Source License Program ... and the excellent PHPStorm IDE, of course!
+Open Source License Program ... and the excellent IDE, of course!
 
 Please use [Github](https://github.com/fuzuchang/laravel-huaweiobs) for reporting bugs, 
 and making comments or suggestions.
