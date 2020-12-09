@@ -1,6 +1,6 @@
 <?php namespace Goodgay\HuaweiOBS;
 
-use Obs\ObsClient;
+use ObsV3\ObsClient;
 
 class Factory
 {
@@ -34,7 +34,7 @@ class Factory
      *
      * @param array $config
      *
-     * @return \Obs\ObsClient
+     * @return \ObsV3\ObsClient
      */
     public function make(array $config): ObsClient
     {
@@ -46,7 +46,7 @@ class Factory
      *
      * @param array $config
      *
-     * @return \Obs\ObsClient
+     * @return \ObsV3\ObsClient
      */
     protected function buildClient(array $config): ObsClient
     {
@@ -60,7 +60,7 @@ class Factory
                 'Level'     => $config['log']['level'],
             ));
         }
-        
+
         return $client;
     }
 }

@@ -21,6 +21,6 @@ return [
         'path'          => storage_path('logs'),
         'name'          => 'esdk-obs-php.log',
         'max_files'     => 30,
-        'level'         => 'WARN',
+        'level'         => 300,
     ]
 ];

@@ -74,7 +74,7 @@ class Manager {
      *
      * @param string $name
      *
-     * @return \Obs\ObsClient
+     * @return \ObsV3\ObsClient
      */
     protected function makeBucket(string $name): Client
     {

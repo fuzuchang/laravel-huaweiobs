@@ -1,6 +1,6 @@
 <?php namespace Goodgay\HuaweiOBS\Traits;
 
-use Obs\ObsClient;
+use ObsV3\ObsClient;
 
 trait Objects {
     /**

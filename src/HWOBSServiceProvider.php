@@ -6,7 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application as LaravelApplication;
 use Laravel\Lumen\Application as LumenApplication;
-use Obs\ObsClient;
+use ObsV3\ObsClient;
 
 class HWOBSServiceProvider extends ServiceProvider
 {

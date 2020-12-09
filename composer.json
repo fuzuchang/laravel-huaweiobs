@@ -19,7 +19,7 @@
     "require": {
         "php": "^7.3",
         "ext-json": "*",
-        "obs/esdk-obs-php": "3.19.9"
+        "goodgay/obsv3": "9999999-dev"
     },
     "autoload": {
         "psr-4": {
