@@ -65,7 +65,7 @@ so previously you might have used:
 
 ```php
 
-use Obs\ObsClient;
+use ObsV3\ObsClient;
 $obsClient = ObsClient::factory ( [
 		'key' => $ak,
 		'secret' => $sk,
