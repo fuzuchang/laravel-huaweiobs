@@ -67,7 +67,7 @@ trait Objects {
         return $this->obs->deleteObject([
             'Bucket'    => $this->bucket,
             // 设置为verbose模式
-            'Quiet'     => false,
+            'Quiet'     => $quiet,
             'Objects'   => $tmp
         ]);
     }

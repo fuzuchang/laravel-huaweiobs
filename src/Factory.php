@@ -51,13 +51,13 @@ class Factory
     protected function buildClient(array $config): ObsClient
     {
         $client = ObsClient::factory($config);
-
+       
         if(config('app.debug')){
             $client->initLog(array (
-                'FilePath'  => storage_path('logs/obs'),
-                'FileName'  => 'esdk-obs-php.log',
-                'MaxFiles'  => 30,
-                'Level'     => WARN
+                'FilePath'  => $config['log']['path'],
+                'FileName'  => $config['log']['name'],
+                'MaxFiles'  => $config['log']['max_files'],
+                'Level'     => $config['log']['level'],
             ));
         }
         
