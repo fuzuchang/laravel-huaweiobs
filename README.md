@@ -37,14 +37,6 @@ After you publish the configuration file as suggested above, you may configure O
 by adding the following to your application's `.env` file (with appropriate values):
   
 ```ini
-HWOBS_KEY=
-HWOBS_SECRET=
-HWOBS_ENDPOINT=
-HWOBS_BUCKET=
-```
-
-
-```ini
 HWOBS_ACCESS_KEY_ID=5RXYW9YKK
 HWOBS_SECRET_ACCESS_KEY=NBHXP7UEBqNu
 HWOBS_DEFAULT_REGION=region
