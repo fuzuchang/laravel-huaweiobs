@@ -44,6 +44,16 @@ HWOBS_BUCKET=
 ```
 
 
+```ini
+HWOBS_ACCESS_KEY_ID=5RXYW9YKK
+HWOBS_SECRET_ACCESS_KEY=NBHXP7UEBqNu
+HWOBS_DEFAULT_REGION=region
+HWOBS_BUCKET=test
+HWOBS_URL=
+HWOBS_ENDPOINT=https://obs.cn-south-1.myhuaweicloud.com
+```
+
+
 ### Lumen
 
 If you work with Lumen, please register the service provider and configuration in `bootstrap/app.php`:
@@ -101,6 +111,27 @@ Lumen users who wish to use Facades can do so by editing the
 $app->withFacades(true,[
      Goodgay\HuaweiOBS\HWobs::class  => 'Hwobs'
 ]);
+```
+
+
+
+
+```php
+// 文件系统的配置文件位于 config/filesystems.php
+'hwobs' => [
+    'driver'    => 'hwobs',
+    'key'       => env('HWOBS_ACCESS_KEY_ID',''),
+    'secret'    => env('HWOBS_SECRET_ACCESS_KEY',''),
+    'region'    => env('HWOBS_DEFAULT_REGION',''),
+    'bucket'    => env('HWOBS_BUCKET',''),
+    'url'       => env('HWOBS_URL',''),
+    'endpoint'  => env('HWOBS_ENDPOINT',''),
+    'exceptionResponseMode'  => false,
+],
+
+
+Storage::disk('hwobs')->put('file.txt', 'Contents');
+
 ```
 
 

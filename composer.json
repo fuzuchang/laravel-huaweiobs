@@ -19,7 +19,8 @@
     "require": {
         "php": "^7.3",
         "ext-json": "*",
-        "goodgay/obsv3": "9999999-dev"
+        "goodgay/obsv3": "9999999-dev",
+        "league/flysystem": "^1.0.20"
     },
     "autoload": {
         "psr-4": {

@@ -31,7 +31,6 @@ trait Upload {
      */
     public function putFile(string $objectName, string $sourceFile)
     {
-        var_dump($this,func_get_args());
         return $this->obs->putObject([
             'Bucket'    => $this->bucket,
             'Key'       => $objectName,
