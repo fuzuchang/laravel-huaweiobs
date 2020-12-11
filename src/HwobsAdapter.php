@@ -183,7 +183,7 @@ class HwobsAdapter extends AbstractAdapter
             return false;
         }
 
-        $object['stream'] = Utils::copyToString($resp['Body']);
+        $object['stream'] = $object['contents'] = Utils::copyToString($resp['Body']);
         unset($resp['Body']);
         return $object;
     }
