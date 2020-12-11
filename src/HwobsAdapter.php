@@ -2,6 +2,7 @@
 
 namespace Goodgay\HuaweiOBS;
 
+use GuzzleHttp\Psr7\Utils;
 use League\Flysystem\Adapter\AbstractAdapter;
 use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
 use League\Flysystem\Config;
@@ -181,11 +182,9 @@ class HwobsAdapter extends AbstractAdapter
         } catch (ObsException $e) {
             return false;
         }
-        $object['contents'] = '';
-        while (!$resp['Body'] -> eof()) {
-            $object['contents'] .= $resp['Body'] -> read(65536);
-        }
-        unset($resp);
+
+        $object['stream'] = Utils::copyToString($resp['Body']);
+        unset($resp['Body']);
         return $object;
     }
 
@@ -311,7 +310,6 @@ class HwobsAdapter extends AbstractAdapter
         return true;
     }
 
-
     /**
      * 创建文件夹
      *
@@ -320,7 +318,7 @@ class HwobsAdapter extends AbstractAdapter
      */
     protected function mkdir(string $path)
     {
-        $dir = dirname($path);
+        $dir = \dirname($path);
         if ($dir && $dir !== '.') {
             return $this->client->putObject([
                 'Bucket' => $this->bucket,
@@ -349,8 +347,29 @@ class HwobsAdapter extends AbstractAdapter
         return $normalizedResponse;
     }
 
+    public function getTemporaryLink(string $path, int $expiration = 1800): string
+    {
+        $resp = $this->client->createSignedUrl([
+            'Method' => 'GET',
+            'Bucket' => $this->bucket,
+            'Key' => $path,
+            'Expires' => $expiration
+        ]);
+        return $resp['SignedUrl']??'';
+    }
+
+    public function getTemporaryUrl(string $path, int $expiration = 1800): string
+    {
+        return $this->getTemporaryLink($path, $expiration);
+    }
+
     public function getUrl(string $path): string
     {
-        return $path;
+        return $this->getTemporaryLink($path, 3600);
+    }
+
+    public function getVisibility($path)
+    {
+        return false;
     }
 }

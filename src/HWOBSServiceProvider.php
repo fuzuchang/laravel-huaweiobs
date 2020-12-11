@@ -40,13 +40,11 @@ class HWOBSServiceProvider extends ServiceProvider
     protected function setUpConfig(): void
     {
         $source = __DIR__ . '/config/hwobs.php';
-        
         if ($this->app instanceof LaravelApplication) {
             $this->publishes([$source => config_path('hwobs.php')], 'config');
         } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('hwobs');
         }
-
         $this->mergeConfigFrom($source, 'hwobs');
     }
 
